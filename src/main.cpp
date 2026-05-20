@@ -1,10 +1,13 @@
 #include <iostream>
+#include <filesystem>
 #include "analyzer.h"
 
 int main() {
     Analyzer a;
 
     try {
+        std::filesystem::create_directories("output");
+
         a.loadText("data/tekstas.txt");
 
         a.saveWordFreq("output/zodziu_daznis.txt");

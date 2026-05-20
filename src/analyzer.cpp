@@ -44,6 +44,9 @@ void Analyzer::loadText(const std::string& filename) {
     }
 
     file.close();
+
+    if (wordCount_.empty())
+        throw std::runtime_error("Failas tuščias arba nėra žodžių: " + filename);
 }
 
 std::map<std::string, int> Analyzer::getWordCounts() const {
