@@ -44,3 +44,15 @@ void Analyzer::loadText(const std::string& filename) {
 
     file.close();
 }
+
+std::map<std::string, int> Analyzer::getWordCounts() const {
+    return wordCount_;
+}
+
+std::map<std::string, std::vector<int>> Analyzer::getCrossRef() const {
+    return crossRef_;
+}
+
+std::set<std::string> Analyzer::getUrls() const {
+    return urls_;
+}
