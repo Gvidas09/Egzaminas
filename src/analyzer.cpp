@@ -33,6 +33,7 @@ void Analyzer::loadText(const std::string& filename) {
         std::string word;
 
         while (iss >> word) {
+            findUrls(word);
             cleanWord(word);
             if (word.empty()) continue;
             wordCount_[word]++;
@@ -68,6 +69,21 @@ void Analyzer::saveWordFreq(const std::string& filename) const {
     }
 
     out.close();
+}
+
+void Analyzer::findUrls(const std::string& token) {
+    bool isUrl = (token.find("https://") == 0 ||
+                  token.find("http://")  == 0 ||
+                  token.find("www.")     == 0);
+    if (!isUrl) return;
+
+    // šalinam baigiančius skyrybos ženklus
+    std::string url = token;
+    while (!url.empty() && !std::isalnum((unsigned char)url.back()))
+        url.pop_back();
+
+    if (!url.empty())
+        urls_.insert(url);
 }
 
 void Analyzer::saveCrossRef(const std::string& filename) const {

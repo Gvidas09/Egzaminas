@@ -12,6 +12,7 @@ private:
     std::set<std::string> urls_;
 
     void cleanWord(std::string& word);
+    void findUrls(const std::string& token);
 
 public:
     Analyzer();
