@@ -104,3 +104,14 @@ void Analyzer::saveCrossRef(const std::string& filename) const {
 
     out.close();
 }
+
+void Analyzer::saveUrls(const std::string& filename) const {
+    std::ofstream out(filename);
+    if (!out.is_open())
+        throw std::runtime_error("Nepavyko sukurti failo: " + filename);
+
+    for (const auto& url : urls_)
+        out << url << "\n";
+
+    out.close();
+}
