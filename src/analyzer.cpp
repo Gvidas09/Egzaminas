@@ -56,3 +56,16 @@ std::map<std::string, std::vector<int>> Analyzer::getCrossRef() const {
 std::set<std::string> Analyzer::getUrls() const {
     return urls_;
 }
+
+void Analyzer::saveWordFreq(const std::string& filename) const {
+    std::ofstream out(filename);
+    if (!out.is_open())
+        throw std::runtime_error("Nepavyko sukurti failo: " + filename);
+
+    for (const auto& [word, count] : wordCount_) {
+        if (count > 1)
+            out << word << ": " << count << "\n";
+    }
+
+    out.close();
+}
