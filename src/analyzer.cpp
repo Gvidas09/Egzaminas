@@ -69,3 +69,22 @@ void Analyzer::saveWordFreq(const std::string& filename) const {
 
     out.close();
 }
+
+void Analyzer::saveCrossRef(const std::string& filename) const {
+    std::ofstream out(filename);
+    if (!out.is_open())
+        throw std::runtime_error("Nepavyko sukurti failo: " + filename);
+
+    for (const auto& [word, lines] : crossRef_) {
+        if (lines.size() <= 1) continue;
+
+        out << word << " -> eilutes: ";
+        for (int i = 0; i < (int)lines.size(); i++) {
+            if (i > 0) out << ", ";
+            out << lines[i];
+        }
+        out << "\n";
+    }
+
+    out.close();
+}
