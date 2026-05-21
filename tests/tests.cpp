@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <cassert>
 #include "analyzer.h"
 
 static void writeFile(const std::string& path, const std::string& content) {

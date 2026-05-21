@@ -6,7 +6,6 @@
 #include <cctype>
 
 Analyzer::Analyzer() {
-    // konstruktorius - konteineriai inicializuojasi automatiškai
 }
 
 void Analyzer::cleanWord(std::string& word) {

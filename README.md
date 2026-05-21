@@ -41,7 +41,3 @@ Programa sukuria tris failus `output/` aplanke:
 ./Testai
 ```
 
-## Pastabos
-
-Skyrybos ženklai (taškai, kableliai ir pan.) yra pašalinami prieš skaičiuojant žodžius.
-Žodžiai paverčiami mažosiomis raidėmis, todėl "The" ir "the" laikomi tuo pačiu žodžiu.

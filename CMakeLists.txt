@@ -7,7 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(${PROJECT_NAME}
     src/main.cpp
     src/analyzer.cpp
-    src/urls.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE include)
@@ -15,6 +14,5 @@ target_include_directories(${PROJECT_NAME} PRIVATE include)
 add_executable(Testai
     tests/tests.cpp
     src/analyzer.cpp
-    src/urls.cpp
 )
 target_include_directories(Testai PRIVATE include)
